@@ -3,21 +3,24 @@ import os
 
 class Journal:
     def __init__(self):
+        """
+        the constructor of the Journal task
+        """
         self.title = ""
         self.author = ""
 
     def set_title(self, title):
         """
-        Used to set tittle for the journal
-        :param title:
+        The getter of the Journal task
+        :param title: Used to set tittle for the journal
         :return: none
         """
         self.title = title
 
     def set_author(self, author):
         """
-        Used to name the author of the journal
-        :param author:
+        The getter of the Journal task
+        :param author: Used to name the author of the journal
         :return: none
         """
         self.author = author
