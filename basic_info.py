@@ -28,17 +28,17 @@ def distance_and_time_cal(s, v):
         t1 = time.time()
         delta_time_seconds = t1 - t0
 
-        distance_from_Earth = v * delta_time_seconds
-        print(f'Current distance from spaceship to Earth: {distance_from_Earth} km')
+        distance_from_earth = v * delta_time_seconds
+        print(f'Current distance from spaceship to Earth: {distance_from_earth} km')
 
-        distance_from_Mars = s - delta_time_seconds * v
-        print(f'Current distance from spaceship to Mars: {distance_from_Mars} km')
+        distance_from_mars = s - delta_time_seconds * v
+        print(f'Current distance from spaceship to Mars: {distance_from_mars} km')
 
         # estimated time of arrival
         estimate_time = ((s - v * delta_time_seconds) / v) / 3600  # hours
         print(f'Estimated time of arrival: {estimate_time} hours')
 
-        if distance_from_Earth >= s or distance_from_Mars <= 0:
+        if distance_from_earth >= s or distance_from_mars <= 0:
             print("You have arrived")
             break
         else:
