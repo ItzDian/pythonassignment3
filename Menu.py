@@ -3,7 +3,12 @@ print("Good morning captain William and vice captain Diablo")
 start_button = input("Do you want to start: ")
 
 
+# Menu
 def button():
+    """
+    This function is used as a main menu to call other functions
+    :return: none
+    """
     print("1. Check time and distance")
     print("2. Check fuel")
     print("3. Check health of spaceship")
@@ -11,7 +16,7 @@ def button():
     print("5. Exit")
 
 
-if start_button == 'start' or 'Start':
+if start_button == 'yes' or 'Yes':
     print("Menu")
     print(button())
 
