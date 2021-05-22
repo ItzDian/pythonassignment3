@@ -4,12 +4,6 @@ import os
 
 
 def menu(input_journal, input_page):
-    """
-    Menu of the journal
-    :param input_journal: input the name of the journal
-    :param input_page: input which page users want to go to
-    :return: none
-    """
     while True:
         print("What would you like to do?: ")
         print("1: Create a journal")
@@ -33,11 +27,6 @@ def menu(input_journal, input_page):
 
 
 def page_menu(input_page):
-    """
-    This function is used to help users create, delete, display page or return to the main menu 
-    :param input_page: input the name of the page that users want to approach
-    :return: none
-    """
     while True:
         print("""
             1.Create page
@@ -60,7 +49,6 @@ def page_menu(input_page):
             print("Please input from 1->4")
 
 
-# Condition where the name of the page is __main__
 if __name__ == '__main__':
     journal = Journal()
     page = Page()
