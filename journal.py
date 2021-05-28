@@ -1,17 +1,29 @@
+import datetime
 import os
+import glob
 
 
 class Journal:
     def __init__(self):
         """
-        the constructor of the Journal task
+        constructor of the task
         """
+        self.name = ""
         self.title = ""
         self.author = ""
+        self.content = ""
+
+    def set_name(self, name):
+        """
+        The setter of the Journal task
+        :param name: Used to set tittle for the journal
+        :return: none
+        """
+        self.name = name
 
     def set_title(self, title):
         """
-        The getter of the Journal task
+        The setter of the Journal task
         :param title: Used to set tittle for the journal
         :return: none
         """
@@ -19,48 +31,59 @@ class Journal:
 
     def set_author(self, author):
         """
-        The getter of the Journal task
+        The setter of the Journal task
         :param author: Used to name the author of the journal
         :return: none
         """
         self.author = author
 
-    def create(self):
+    def create_journal(self):
         """
         Create journal for the spaceship
         :return: none
         """
-        self.set_title(input("Input the journal name: "))
-        cwd = os.getcwd()  # Return a string representing the current working directory.
-        path_file = cwd + '/' + self.title  # set path to variable path_file
-        try:
-            os.mkdir(path_file)
-        except OSError:
-            print("Creation of the directory %s failed" % path_file)
-        else:
-            print("Create successfully %s" % path_file)
+        self.set_name(input("Input the file name(Only name): "))
+        self.set_title(input("Input the title: "))
+        self.content = self.write()
+        filename = self.name.replace(" ", "") + ".txt"
+        entry = open(filename, "a")
+        entry.write("Author: " + self.author + "\n")
+        entry.write("Title: " + self.title + "\n")
+        entry.write("Time: " + str(datetime.datetime.now()) + "\n")
+        entry.write("Content: " + self.content)
+        entry.close()
 
-    def open(self):
+    def open_journal(self):
         """
-        This function is used to open journals
+        open a page
         :return: none
         """
+        print(glob.glob('*.txt'))  # list all file txt
+        self.set_title(input("Input the journal name(Only Name): "))
+        filename = self.title.replace(" ", "") + ".txt"
+        entry = open(filename, "r")
+        print(*entry)
+        while True:
+            option = input("Enter Y for exit:  ")
+            if option.lower() == 'y':
+                return False
+            else:
+                print("Invalid argument")
 
-        os.chdir(os.getcwd())
-
-        print("List of journal : {}".format(len(os.listdir())))
-        print(*os.listdir())
-        self.set_title(input("Input the journal name: "))
-        os.chdir(os.getcwd() + "/" + self.title)
-
-        page_list = os.listdir()
-        print("Current pages:".format(len(page_list)))
-        print(*page_list)
+    def write(self):
+        """
+        write a body of a note/paragraph or any kind of text in a page
+        :return: self.content
+        """
+        self.content = input("Body: ")
+        return self.content
 
     def remove(self):
         """
-        This function is used to remove a journal from the list
+        Remove a page from the list
         :return: none
         """
-        self.set_title(input("Input the name of journal: "))
-        os.remove(self.title)
+        print(glob.glob('*.txt'))  # list all file txt
+        self.set_name(input("Input the name of a page: "))
+        filename = self.name.replace(" ", "") + ".txt"
+        os.remove(filename)
