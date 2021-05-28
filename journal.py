@@ -43,14 +43,14 @@ class Journal:
         :return: none
         """
         self.set_name(input("Input the file name(Only name): "))
-        self.set_title(input("Input the title: "))
-        self.content = self.write()
         filename = self.name.replace(" ", "") + ".txt"
         entry = open(filename, "a")
+        self.set_title(input("Input the title: "))
+        self.content = self.write()
         entry.write("Author: " + self.author + "\n")
         entry.write("Title: " + self.title + "\n")
         entry.write("Time: " + str(datetime.datetime.now()) + "\n")
-        entry.write("Content: " + self.content)
+        entry.write("Content: " + self.content + "\n" + "\n")
         entry.close()
 
     def open_journal(self):
