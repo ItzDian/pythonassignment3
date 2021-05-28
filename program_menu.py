@@ -7,15 +7,14 @@ def journal_menu(input_journal):
     """
     This function represent the menu of the journal
     :param input_journal: input the name of the journal
-    :param input_page: input which page users want to go to
     :return: none
     """
     while True:
+        print("--------Journal Menu----------")
         print("What would you like to do?: ")
         print("1: Create a journal")
         print("2: Open a journal")
-        print("3: Remove journal")
-        print("EXIT to close the program")
+        print("Type EXIT to close the program")
 
         print("-----\n-----")
         option = input("Your choice:  ")
@@ -23,14 +22,10 @@ def journal_menu(input_journal):
             input_journal.create_journal()
         elif option == "2":
             input_journal.open_journal()
-        elif option == "3":
-            input_journal.remove()
         elif option.lower() == "exit":
             return False
         else:
             print("Please input 1-3 options: ")
-
-
 
 
 # Menu
@@ -41,7 +36,7 @@ def spaceship_menu():
     """
     while True:
 
-        print("Menu")
+        print("--------Spaceship Menu----------")
         print("1. Check overall spaceship ")
         print("2. Exit")
 
@@ -52,8 +47,10 @@ def spaceship_menu():
             print(distance_and_time_cal(225000000))
         elif option == "2":
             print('Stop the process')
+            return False
         else:
             print("Please input 1-2 options: ")
+
 
 def main_menu(input_journal):
     """
@@ -63,7 +60,7 @@ def main_menu(input_journal):
     """
 
     while True:
-
+        print("--------Main Menu----------")
         print("What would you like to do?: ")
         print("1: Open Spaceship Dashboard")
         print("2: Open Journal Dashboard")

@@ -77,13 +77,3 @@ class Journal:
         """
         self.content = input("Body: ")
         return self.content
-
-    def remove(self):
-        """
-        Remove a page from the list
-        :return: none
-        """
-        print(glob.glob('*.txt'))  # list all file txt
-        self.set_name(input("Input the name of a page: "))
-        filename = self.name.replace(" ", "") + ".txt"
-        os.remove(filename)
