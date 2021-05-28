@@ -179,7 +179,7 @@ def binary_clock():
         run_clock(current_time, column_name)
         if current_time[0] != last_time[0] or current_time[1] != last_time[1]: # Call the columns of hour out
             create_hours(column_name[0], column_name[1])
-        if current_time[2] != last_time[2] or current_time[3] != last_time[3]: # Call the columns of mins out
+        if current_time[2] != last_time[2] or current_time[3] != last_time[3]: # Call the columns of mines out
             create_minute(column_name[2], column_name[3])
         if current_time[4] != last_time[4] or current_time[5] != last_time[5]: # Call the columns of seconds out
             create_second(column_name[4], column_name[5])
